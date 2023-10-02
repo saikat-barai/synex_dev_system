@@ -12,33 +12,20 @@
 <body class="font-poppins container m-auto px-5 lg:px-32">
     @include('includes.header')
     <main class="px-5">
-        <div class="overflow-x-auto">
-            <div class="text-right">
-                <input class="btn btn-primary" onclick="my_modal_2.showModal()" type="button" value="+Add Developer">
-            </div>
-            <table class="table">
+        <div class="overflow-x-auto py-10 mx-auto text-center w-4/5">
+            <table class="table table-sm">
                 <!-- head -->
                 <thead>
                     <tr>
-                        <th>
-                            <label>
-                                <input type="checkbox" class="checkbox" />
-                            </label>
-                        </th>
                         <th>Name</th>
                         <th>Phone</th>
-                        <th>Action</th>
+                       
                     </tr>
                 </thead>
                 <tbody>
                     <!-- row 1 -->
                     @foreach ($developers as $key => $developer)
                         <tr>
-                            <th>
-                                <label>
-                                    <input type="checkbox" class="checkbox" />
-                                </label>
-                            </th>
                             <td>
                                 <div class="flex items-center space-x-3">
                                     <div class="avatar">
@@ -53,16 +40,7 @@
                                 </div>
                             </td>
                             <td>{{ $developer->phone }}</td>
-                            <th class="flex space-x-1">
-                                <button href="" id="edit" data-id="{{ $developer->id }}"
-                                    onclick="editdeveloper.showModal()" class="btn btn-primary"><i
-                                        class="las la-edit"></i></button>
-                                <form action="{{ URL::to('developer/' . $developer->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-warning"><i class="las la-trash"></i></button>
-                                </form>
-                            </th>
+                            
                         </tr>
                     @endforeach
 

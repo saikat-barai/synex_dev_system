@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class MemberController extends Controller
 {
+   
    public function member(){
     $members = Member::latest()->paginate(5);
     return view('member.member',compact('members'));

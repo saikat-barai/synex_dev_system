@@ -14,33 +14,19 @@
 <body class="font-poppins container m-auto px-5 lg:px-32">
     @include('includes.header')
     <main class="px-5">
-        <div class="overflow-x-auto py-6">
-            <div class="text-right">
-                <input class="btn btn-primary" onclick="my_modal_2.showModal()" type="button" value="+Add Member">
-            </div>
-            <table class="table">
+        <div class="overflow-x-auto py-10 mx-auto text-center w-4/5">
+            <table class="table table-sm">
                 <!-- head -->
                 <thead>
                     <tr>
-                        <th>
-                            <label>
-                                <input type="checkbox" class="checkbox" />
-                            </label>
-                        </th>
                         <th>Name</th>
                         <th>Phone</th>
-                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <!-- row 1 -->
                     @foreach ($members as $key => $member)
                         <tr>
-                            <th>
-                                <label>
-                                    <input type="checkbox" class="checkbox" />
-                                </label>
-                            </th>
                             <td>
                                 <div class="flex items-center space-x-3">
                                     <div>
@@ -49,14 +35,6 @@
                                 </div>
                             </td>
                             <td>{{ $member->phone }}</td>
-                            <th class="flex space-x-1">
-                                <button href="" id="edit" data-id="{{ $member->id }}"
-                                    data-name="{{ $member->name }}" data-phone="{{ $member->phone }}"
-                                    onclick="updatemodal.showModal()" class="btn btn-primary edit_member"><i
-                                        class="las la-edit"></i></button>
-                                <button type="submit" data-id="{{ $member->id }}"
-                                    class="btn btn-warning delete_member"><i class="las la-trash"></i></button>
-                            </th>
                         </tr>
                     @endforeach
             </table>
