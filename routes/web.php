@@ -21,6 +21,8 @@ Route::get('/', function () {
 });
 Route::get('/home', [HomeController::class, 'home'])->name('/home');
 Route::resource('/developer', DeveloperController::class);
+
+
 Route::get('/member', [MemberController::class, 'member'])->name('/member');
 Route::post('/add/member', [MemberController::class, 'add_member'])->name('add.member');
 Route::post('/update/member', [MemberController::class, 'update_member'])->name('update.member');

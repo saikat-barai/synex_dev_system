@@ -103,7 +103,6 @@
                     @endforeach
 
             </table>
-
         </div>
 
 
@@ -148,7 +147,7 @@
             <div class="modal-box text-center">
                 <h3 class="font-bold text-lg">Edit Developer</h3>
                 <div class="modal-body" id="modal_body">
-                    
+
                 </div>
             </div>
             <form method="dialog" class="modal-backdrop">

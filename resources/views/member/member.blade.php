@@ -175,12 +175,12 @@
         });
     </script>
 
-
     <script>
         $(document).ready(function() {
-            // add member modal 
+            // add member modal
             $(document).on('click', '.add_member', function(e) {
                 e.preventDefault();
+                console.log('hi');
                 let name = $('#name').val();
                 let phone = $('#phone').val();
                 $.ajax({
@@ -192,20 +192,21 @@
                     },
                     success: function(res) {
                         if (res.status == 'success') {
-
+                            console.log('done');
                             $('#addmemberform')[0].reset();
-                            $('#my_modal_2').modal('hide');
+                            $('#my_modal_2').hide();
+                            location.reload();
                         }
 
                     },
                     error: function(err) {
-
+                        $('#my_modal_2').hide();
                     }
                 })
             });
 
 
-            // edit member modal 
+            // edit member modal
             $(document).on('click', '.edit_member', function() {
                 let id = $(this).data('id');
                 let name = $(this).data('name');
@@ -216,7 +217,7 @@
             });
 
 
-            // update submition 
+            // update submition
             $(document).on('click', '.update_member', function(e) {
                 e.preventDefault();
                 let update_id = $('#update_id').val();
@@ -244,7 +245,7 @@
                 })
             });
 
-            
+
             // delete member
             $(document).on('click', '.delete_member', function(e) {
                 e.preventDefault();
@@ -258,9 +259,10 @@
                         },
                         success: function(res) {
                             if (res.status == 'success') {
-                                $('.table').load(location.href + ' .table');
+                                console.log('delete');
+                                location.reload();
+                                // $('.table').load(location.href + ' .table');
                             }
-
                         },
                     })
                 }
